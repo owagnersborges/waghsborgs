@@ -6,10 +6,9 @@
 <meta name="description" content="Wagners Consultoria. Revelamos as marcas que o mercado já percebeu e que o empresário ainda não viu.">
 <title>Wagners Consultoria</title>
 <link rel="icon" href="https://wagners.com.br/wp-content/uploads/2025/07/cropped-lion-32x32.png" sizes="32x32">
-<link rel="icon" href="https://wagners.com.br/wp-content/uploads/2025/07/cropped-lion-192x192.png" sizes="192x192">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -19,372 +18,537 @@
   --blue-light:#2a52b5;
   --white:#ffffff;
   --off-white:#f4f6fb;
-  --gray:#e0e5f0;
-  --text-muted:rgba(255,255,255,0.65);
-  --text-muted-dark:rgba(21,45,105,0.55);
+  --gray-light:#e8ecf5;
+  --text-muted:rgba(255,255,255,0.68);
+  --text-dark:rgba(21,45,105,0.75);
   --font-display:'Merriweather',serif;
   --font-body:'Prompt',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--blue);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.7;min-height:100vh;font-weight:300}
+body{background:var(--white);color:var(--blue);font-family:var(--font-body);font-size:16px;line-height:1.7;font-weight:300}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;background:var(--blue-dark);border-bottom:1px solid rgba(255,255,255,0.1)}
-.nav-logo-img{cursor:pointer;text-decoration:none;display:flex;align-items:center}
-.nav-logo-img img{height:36px;width:auto;transition:opacity 0.3s}
-.nav-logo-img img:hover{opacity:0.8}
-.nav-links{display:flex;gap:2.5rem}
-.nav-links a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;transition:color 0.3s;text-decoration:none;font-weight:300}
-.nav-links a:hover,.nav-links a.active{color:var(--white)}
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--blue-dark);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem;display:flex;justify-content:space-between;align-items:center;height:64px}
+.nav-logo img{height:34px;width:auto;display:block}
+.nav-links{display:flex;gap:0;align-items:center;height:64px}
+.nav-links a{font-size:0.78rem;letter-spacing:0.06em;color:rgba(255,255,255,0.75);cursor:pointer;transition:color 0.2s;text-decoration:none;font-weight:400;padding:0 1.1rem;height:64px;display:flex;align-items:center;border-bottom:2px solid transparent;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--white);border-bottom-color:var(--white)}
+.nav-cta{background:var(--white);color:var(--blue)!important;padding:0.5rem 1.2rem!important;height:auto!important;border:none!important;font-weight:500!important;font-size:0.75rem!important;letter-spacing:0.1em;margin-left:1rem;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--gray-light)!important;color:var(--blue)!important}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.nav-toggle span{display:block;width:24px;height:1px;background:var(--white);transition:all 0.3s}
+.nav-toggle span{display:block;width:22px;height:1px;background:var(--white)}
 
-/* PAGES */
-.page{display:none;padding-top:72px;min-height:100vh}
+/* ===== HERO ===== */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding-top:64px;overflow:hidden;background:var(--blue-dark)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 50%,var(--blue-mid) 100%);z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:url('https://wagners.com.br/wp-content/uploads/2025/06/wagners-consultoria-e1750705857936.jpg') right center/cover no-repeat;opacity:0.12}
+.hero-content{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:6rem 2.5rem 5rem;width:100%}
+.hero-tag{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.2rem;font-weight:400}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;line-height:1.18;max-width:680px;color:var(--white);margin-bottom:2rem}
+.hero-title em{font-style:italic;color:rgba(255,255,255,0.7)}
+.hero-body{max-width:520px;color:var(--text-muted);font-size:1rem;line-height:1.85;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-block;padding:0.85rem 2rem;background:var(--white);color:var(--blue);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-family:var(--font-body);font-weight:500;text-decoration:none;cursor:pointer;transition:all 0.2s;border:2px solid var(--white)}
+.btn-primary:hover{background:transparent;color:var(--white)}
+.btn-outline{display:inline-block;padding:0.85rem 2rem;background:transparent;color:var(--white);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-family:var(--font-body);font-weight:400;text-decoration:none;cursor:pointer;transition:all 0.2s;border:1px solid rgba(255,255,255,0.4)}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.35);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:0.5rem;z-index:1}
+.hero-scroll::after{content:'';width:1px;height:40px;background:rgba(255,255,255,0.25)}
+
+/* ===== FINDER / PERGUNTA INTERATIVA ===== */
+.finder{background:var(--off-white);padding:5rem 2.5rem}
+.finder-inner{max-width:1280px;margin:0 auto}
+.finder-intro{margin-bottom:3rem}
+.finder-intro h2{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:300;color:var(--blue);margin-bottom:0.75rem}
+.finder-intro p{color:var(--text-dark);font-size:0.95rem;max-width:500px}
+.finder-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(21,45,105,0.1)}
+.finder-card{background:var(--off-white);padding:2.5rem;cursor:pointer;transition:background 0.2s;border-left:3px solid transparent}
+.finder-card:hover,.finder-card.active{background:var(--white);border-left-color:var(--blue)}
+.finder-card-num{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(21,45,105,0.4);margin-bottom:0.75rem;font-weight:400}
+.finder-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:400;color:var(--blue);margin-bottom:0.5rem}
+.finder-card p{font-size:0.88rem;color:var(--text-dark);line-height:1.7}
+.finder-answer{background:var(--white);padding:2.5rem;border-left:3px solid var(--blue);margin-top:1px;display:none}
+.finder-answer.visible{display:block}
+.finder-answer p{color:var(--text-dark);line-height:1.85;font-size:0.95rem}
+.finder-answer strong{color:var(--blue);font-weight:500}
+
+/* ===== CASES / IMPACTO ===== */
+.cases{padding:5rem 2.5rem;background:var(--blue-dark)}
+.cases-inner{max-width:1280px;margin:0 auto}
+.cases-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
+.cases-header h2{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:300;color:var(--white)}
+.cases-header a{font-size:0.78rem;letter-spacing:0.1em;color:rgba(255,255,255,0.55);text-decoration:none;text-transform:uppercase;font-weight:400;white-space:nowrap;transition:color 0.2s}
+.cases-header a:hover{color:var(--white)}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08)}
+.case-card{background:var(--blue-dark);padding:2.5rem;transition:background 0.2s}
+.case-card:hover{background:var(--blue)}
+.case-tag{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:400}
+.case-title{font-family:var(--font-display);font-size:1.05rem;font-weight:400;color:var(--white);margin-bottom:1.5rem;line-height:1.5}
+.case-impact{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;margin-top:1.2rem}
+.case-impact-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem}
+.case-metrics{display:flex;gap:2rem}
+.case-metric-num{font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:var(--white);line-height:1}
+.case-metric-desc{font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;line-height:1.4}
+
+/* ===== SERVIÇOS ===== */
+.services{padding:5rem 2.5rem;background:var(--white)}
+.services-inner{max-width:1280px;margin:0 auto}
+.services-header{margin-bottom:3.5rem;max-width:700px}
+.services-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(21,45,105,0.45);margin-bottom:1rem;font-weight:400}
+.services-header h2{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:300;color:var(--blue);line-height:1.3}
+.services-list{display:grid;grid-template-columns:1fr;gap:0}
+.service-row{display:grid;grid-template-columns:80px 1fr 2fr;gap:2rem;padding:2.2rem 0;border-top:1px solid var(--gray-light);align-items:start;transition:background 0.2s;cursor:default}
+.service-row:last-child{border-bottom:1px solid var(--gray-light)}
+.service-row:hover{background:var(--off-white);padding-left:1rem;padding-right:1rem;margin:0 -1rem}
+.service-num{font-family:var(--font-display);font-size:2rem;font-weight:300;color:rgba(21,45,105,0.18);line-height:1;padding-top:0.2rem}
+.service-name{font-family:var(--font-display);font-size:1.1rem;font-weight:400;color:var(--blue);line-height:1.4;padding-top:0.2rem}
+.service-desc{color:var(--text-dark);font-size:0.9rem;line-height:1.85}
+.service-result{font-size:0.82rem;color:rgba(21,45,105,0.5);margin-top:0.75rem;font-style:italic}
+
+/* ===== CTA DUPLO (como Bain) ===== */
+.dual-cta{background:var(--blue);padding:5rem 2.5rem}
+.dual-cta-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.15)}
+.dual-cta-block{background:var(--blue);padding:3.5rem;transition:background 0.2s}
+.dual-cta-block:hover{background:var(--blue-mid)}
+.dual-cta-block h2{font-family:var(--font-display);font-size:clamp(1.4rem,2vw,2rem);font-weight:300;color:var(--white);margin-bottom:2rem;line-height:1.35}
+.btn-white{display:inline-block;padding:0.85rem 2rem;background:var(--white);color:var(--blue);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;font-family:var(--font-body);font-weight:500;text-decoration:none;cursor:pointer;transition:all 0.2s;border:2px solid var(--white)}
+.btn-white:hover{background:transparent;color:var(--white)}
+
+/* ===== STATEMENT ===== */
+.statement{background:var(--off-white);padding:5rem 2.5rem;border-top:3px solid var(--blue)}
+.statement-inner{max-width:1280px;margin:0 auto}
+.statement-text{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;line-height:1.6;max-width:860px;color:var(--blue)}
+.statement-text strong{font-weight:700}
+
+/* ===== PÁGINAS INTERNAS ===== */
+.page{display:none;padding-top:64px;min-height:100vh}
 .page.active{display:block}
-
-/* HERO */
-.hero{min-height:calc(100vh - 72px);display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 60%,var(--blue-mid) 100%)}
-.hero::after{content:'';position:absolute;bottom:0;right:0;width:50%;height:100%;background:url('https://wagners.com.br/wp-content/uploads/2025/06/wagners-consultoria-e1750705857936.jpg') center/cover no-repeat;opacity:0.08;pointer-events:none}
-.hero-eyebrow{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-weight:400}
-.hero-title{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,4rem);font-weight:300;line-height:1.2;max-width:750px;margin-bottom:2rem}
-.hero-title em{font-style:italic;color:rgba(255,255,255,0.75)}
-.hero-body{max-width:560px;color:var(--text-muted);font-size:1rem;line-height:1.9;margin-bottom:3rem;font-weight:300}
-.hero-cta{display:inline-block;padding:0.9rem 2.5rem;background:var(--white);color:var(--blue);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;font-family:var(--font-body);font-weight:500;text-decoration:none;border:2px solid var(--white)}
-.hero-cta:hover{background:transparent;color:var(--white)}
-.hero-cta-outline{display:inline-block;padding:0.9rem 2.5rem;background:transparent;color:var(--white);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;font-family:var(--font-body);font-weight:400;text-decoration:none;border:1px solid rgba(255,255,255,0.4);margin-left:1rem}
-.hero-cta-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.1)}
-.divider-line{width:50px;height:2px;background:rgba(255,255,255,0.3);margin:4rem 0}
-
-/* SECTIONS */
-.section{padding:6rem 4rem}
-.section-alt{background:var(--blue-dark)}
-.section-white{background:var(--off-white);color:var(--blue)}
-.section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:1rem;font-weight:400}
-.section-label-dark{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted-dark);margin-bottom:1rem;font-weight:400}
-.section-title{font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.8rem);font-weight:300;line-height:1.35;margin-bottom:2.5rem}
-.section-title-dark{font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.8rem);font-weight:300;line-height:1.35;margin-bottom:2.5rem;color:var(--blue)}
-
-/* EXAMPLES GRID */
-.examples-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);margin:3rem 0}
-.example-card{background:var(--blue);padding:2.5rem;transition:background 0.3s}
-.example-card:hover{background:var(--blue-mid)}
-.example-tag{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:1rem;font-weight:400}
-.example-text{font-family:var(--font-display);font-size:1.15rem;font-weight:300;line-height:1.6;color:var(--white);margin-bottom:1rem}
-.example-result{font-size:0.82rem;color:rgba(255,255,255,0.45);font-weight:300;font-style:italic}
-
-.statement{padding:6rem 4rem;background:var(--blue-dark);border-top:1px solid rgba(255,255,255,0.08)}
-.statement-text{font-family:var(--font-display);font-size:clamp(1.4rem,2.5vw,2.2rem);font-weight:300;line-height:1.6;max-width:800px;color:var(--white);margin-bottom:3rem}
-.statement-text strong{color:var(--white);font-weight:700}
+.page-hero{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:5rem 2.5rem 4rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.page-hero-inner{max-width:1280px;margin:0 auto}
+.page-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:400}
+.page-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1.2;color:var(--white);margin-bottom:1.5rem}
+.page-subtitle{font-size:1rem;color:rgba(255,255,255,0.65);max-width:600px;font-weight:300;line-height:1.85}
+.page-body{max-width:1280px;margin:0 auto;padding:4rem 2.5rem}
 
 /* QUEM SOMOS */
-.qs-hero{padding:5rem 4rem 3rem;border-bottom:1px solid rgba(255,255,255,0.1);background:linear-gradient(135deg,var(--blue-dark),var(--blue))}
-.qs-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:300;line-height:1.25;margin-bottom:1.5rem}
-.qs-subtitle{font-size:1rem;color:var(--text-muted);max-width:600px;font-weight:300;line-height:1.9}
-.qs-body{padding:4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;background:var(--blue)}
-.qs-col p{margin-bottom:1.5rem;color:var(--text-muted);font-weight:300;line-height:1.9}
-.qs-col p strong{color:var(--white);font-weight:500}
-.qs-name-origin{grid-column:1/-1;padding:2.5rem;border:1px solid rgba(255,255,255,0.15);margin-top:1rem;background:rgba(255,255,255,0.04)}
-.qs-name-origin-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.2rem;font-weight:400}
-.qs-name-origin-text{font-family:var(--font-display);font-size:1.25rem;font-weight:300;line-height:1.75;color:var(--text-muted)}
-.proverb{padding:3rem 4rem;background:var(--blue-dark);border-left:3px solid rgba(255,255,255,0.3);margin:0 4rem 4rem}
-.proverb-text{font-family:var(--font-display);font-size:1.25rem;font-style:italic;font-weight:300;color:var(--white);margin-bottom:0.75rem}
-.proverb-ref{font-size:0.78rem;letter-spacing:0.1em;color:rgba(255,255,255,0.4);font-weight:300}
-
-/* O QUE FAZEMOS */
-.services{padding:4rem;background:var(--blue)}
-.service-item{padding:2.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);display:grid;grid-template-columns:70px 1fr;gap:3rem;align-items:start}
-.service-num{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:rgba(255,255,255,0.15);line-height:1}
-.service-name{font-family:var(--font-display);font-size:1.3rem;font-weight:400;margin-bottom:0.75rem;color:var(--white)}
-.service-text{color:var(--text-muted);font-weight:300;line-height:1.9;margin-bottom:0.75rem}
-.service-result{font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300;font-style:italic}
-.no-formula{padding:2.5rem;background:var(--blue-dark);margin:0 4rem 4rem;border-left:3px solid rgba(255,255,255,0.2)}
-.no-formula-title{font-family:var(--font-display);font-size:1.4rem;font-weight:400;margin-bottom:1rem;color:var(--white)}
-.no-formula-text{color:var(--text-muted);font-weight:300;line-height:1.9}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:4rem}
+.about-col p{margin-bottom:1.5rem;color:var(--text-dark);line-height:1.9;font-size:0.95rem}
+.about-col p strong{color:var(--blue);font-weight:500}
+.about-box{background:var(--off-white);padding:2.5rem;border-left:3px solid var(--blue);margin-bottom:3rem}
+.about-box-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(21,45,105,0.45);margin-bottom:1rem}
+.about-box-text{font-family:var(--font-display);font-size:1.1rem;font-weight:300;line-height:1.75;color:var(--blue)}
+.proverb{background:var(--blue-dark);padding:3rem 2.5rem;margin:0 -2.5rem}
+.proverb-inner{max-width:1280px;margin:0 auto}
+.proverb-text{font-family:var(--font-display);font-size:1.3rem;font-style:italic;font-weight:300;color:var(--white);margin-bottom:0.75rem}
+.proverb-ref{font-size:0.78rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em}
 
 /* COMO TRABALHAMOS */
-.steps{padding:4rem;background:var(--blue)}
-.step{display:grid;grid-template-columns:70px 1fr;gap:2.5rem;padding:2.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);align-items:start}
-.step-num{font-family:var(--font-display);font-size:3rem;font-weight:300;color:rgba(255,255,255,0.12);line-height:1}
-.step-name{font-family:var(--font-display);font-size:1.3rem;font-weight:400;margin-bottom:0.6rem;color:var(--white)}
-.step-text{color:var(--text-muted);font-weight:300;line-height:1.9}
-.ct-close{padding:3rem 4rem;font-family:var(--font-display);font-size:1.2rem;font-weight:300;color:var(--text-muted);line-height:1.75;border-top:1px solid rgba(255,255,255,0.08);background:var(--blue-dark)}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:0}
+.step-row{display:grid;grid-template-columns:70px 1fr;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--gray-light);align-items:start}
+.step-row:last-child{border-bottom:1px solid var(--gray-light)}
+.step-num{font-family:var(--font-display);font-size:3rem;font-weight:300;color:rgba(21,45,105,0.15);line-height:1}
+.step-name{font-family:var(--font-display);font-size:1.1rem;font-weight:400;color:var(--blue);margin-bottom:0.6rem}
+.step-text{color:var(--text-dark);font-size:0.9rem;line-height:1.85}
+.step-close{background:var(--blue-dark);padding:2.5rem;margin:3rem -2.5rem 0;font-family:var(--font-display);font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.7}
+.step-close-inner{max-width:1280px;margin:0 auto}
 
 /* CONTATO */
-.contact-hero{padding:6rem 4rem;min-height:calc(100vh - 72px);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 100%)}
-.contact-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4.5rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem}
-.contact-title em{font-style:italic;color:rgba(255,255,255,0.65)}
-.contact-text{max-width:500px;color:var(--text-muted);font-weight:300;line-height:1.9;margin-bottom:3rem}
-.contact-btn{display:inline-block;padding:1.1rem 2.8rem;background:var(--white);color:var(--blue);font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;font-family:var(--font-body);font-weight:500;margin-bottom:2rem;text-decoration:none;border:2px solid var(--white)}
-.contact-btn:hover{background:transparent;color:var(--white)}
-.contact-info{color:rgba(255,255,255,0.4);font-size:0.85rem;font-weight:300;line-height:2.2}
-.contact-info a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.3s}
+.contact-section{min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:6rem 2.5rem}
+.contact-inner{max-width:1280px;margin:0 auto}
+.contact-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:1.5rem}
+.contact-title em{font-style:italic;color:rgba(255,255,255,0.6)}
+.contact-text{max-width:480px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.9;margin-bottom:3rem;font-size:0.95rem}
+.contact-info{color:rgba(255,255,255,0.4);font-size:0.85rem;line-height:2.2;margin-top:2rem}
+.contact-info a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s}
 .contact-info a:hover{color:var(--white)}
 
 /* FOOTER */
-footer{padding:2.5rem 4rem;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;background:var(--blue-dark)}
-.footer-logo-img img{height:26px;width:auto;opacity:0.7}
-.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.3);font-weight:300}
+footer{background:var(--blue-dark);padding:3rem 2.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo img{height:24px;width:auto;opacity:0.5}
+.footer-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+
+/* HOME é a primeira page */
+#page-home{display:block}
 
 /* MOBILE */
-@media(max-width:768px){
-  nav{padding:1rem 1.5rem}
-  .nav-links{display:none;position:fixed;top:62px;left:0;right:0;background:var(--blue-dark);flex-direction:column;padding:2rem 1.5rem;gap:1.5rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+@media(max-width:900px){
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:var(--blue-dark);flex-direction:column;height:auto;align-items:stretch;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.1)}
   .nav-links.open{display:flex}
+  .nav-links a{height:48px;padding:0 1.5rem;border-bottom:none;border-left:3px solid transparent}
+  .nav-links a.active,.nav-links a:hover{border-left-color:var(--white);border-bottom:none}
+  .nav-cta{margin:0.5rem 1.5rem;height:40px!important;display:flex!important;align-items:center!important;justify-content:center!important}
   .nav-toggle{display:flex}
-  .hero,.section,.statement,.qs-hero,.contact-hero{padding:3rem 1.5rem}
-  .qs-body,.services,.steps{padding:2rem 1.5rem}
-  .examples-grid{grid-template-columns:1fr}
-  .qs-body{grid-template-columns:1fr;gap:0}
-  .qs-name-origin{grid-column:1}
-  .service-item,.step{grid-template-columns:50px 1fr;gap:1.5rem}
-  .no-formula,.proverb{margin:0 1.5rem 3rem}
-  .ct-close{padding:2rem 1.5rem}
-  footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
-  .hero-cta-outline{margin-left:0;margin-top:0.75rem;display:block;text-align:center}
+  .hero-content,.finder,.cases,.services,.dual-cta,.statement,.page-hero,.page-body,.contact-section{padding-left:1.5rem;padding-right:1.5rem}
+  .finder-grid,.cases-grid,.dual-cta-inner,.about-grid{grid-template-columns:1fr}
+  .service-row{grid-template-columns:50px 1fr;grid-template-rows:auto auto}
+  .service-desc{grid-column:2}
+  .step-row{grid-template-columns:50px 1fr}
+  .cases-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .footer-inner{flex-direction:column;gap:1rem;text-align:center}
+  .proverb,.step-close{margin:3rem -1.5rem 0;padding-left:1.5rem;padding-right:1.5rem}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo-img" onclick="showPage('home');return false;" href="#">
-    <img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria">
-  </a>
-  <div class="nav-links" id="navlinks">
-    <a onclick="showPage('home')" class="active" id="nav-home">Início</a>
-    <a onclick="showPage('quem')" id="nav-quem">Quem Somos</a>
-    <a onclick="showPage('oque')" id="nav-oque">O Que Fazemos</a>
-    <a onclick="showPage('como')" id="nav-como">Como Trabalhamos</a>
-    <a onclick="showPage('contato')" id="nav-contato">Contato</a>
-  </div>
-  <div class="nav-toggle" id="navtoggle" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home');return false;" href="#" aria-label="Wagners Consultoria">
+      <img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria">
+    </a>
+    <div class="nav-links" id="navlinks">
+      <a onclick="showPage('home')" class="active" id="nav-home">Início</a>
+      <a onclick="showPage('quem')" id="nav-quem">Quem Somos</a>
+      <a onclick="showPage('oque')" id="nav-oque">O Que Fazemos</a>
+      <a onclick="showPage('como')" id="nav-como">Como Trabalhamos</a>
+      <a onclick="showPage('contato')" id="nav-contato" class="nav-cta">Fala com a gente</a>
+    </div>
+    <div class="nav-toggle" id="navtoggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
-<!-- HOME -->
+<!-- ==================== HOME ==================== -->
 <div class="page active" id="page-home">
+
+  <!-- HERO -->
   <div class="hero">
-    <div class="hero-eyebrow">Wagners Consultoria</div>
-    <h1 class="hero-title">Sua empresa está deixando<br><em>marcas no mercado agora.</em><br>Você sabe quais são?</h1>
-    <p class="hero-body">A forma como sua empresa atende o telefone é uma marca. O tempo que leva para responder um cliente é uma marca. A fachada, o interior, o uniforme, o caminhão: tudo é uma marca. Essas marcas existem querendo você ou não. O mercado as percebe e forma uma opinião sobre o seu negócio.</p>
-    <div>
-      <a class="hero-cta" onclick="showPage('contato');return false;" href="#">Fala com a gente</a>
-      <a class="hero-cta-outline" onclick="showPage('oque');return false;" href="#">O que fazemos</a>
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Wagners Consultoria</p>
+      <h1 class="hero-title">Sua empresa está deixando<br><em>marcas no mercado agora.</em><br>Você sabe quais são?</h1>
+      <p class="hero-body">A forma como sua empresa atende o telefone é uma marca. O tempo que leva para responder um cliente é uma marca. A fachada, o interior, o uniforme, o caminhão: tudo é uma marca. O mercado registra tudo e forma uma opinião sobre o seu negócio, querendo você ou não.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" onclick="showPage('contato');return false;" href="#">Fala com a gente</a>
+        <a class="btn-outline" onclick="showPage('oque');return false;" href="#">O que fazemos</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+
+  <!-- FINDER INTERATIVO -->
+  <div class="finder">
+    <div class="finder-inner">
+      <div class="finder-intro">
+        <h2>Sua empresa tem marcas boas e ruins. Você conhece as suas?</h2>
+        <p>Clique em cada situação abaixo e veja como isso se traduz em percepção de mercado.</p>
+      </div>
+      <div class="finder-grid" id="finderGrid">
+        <div class="finder-card active" onclick="showFinder(0)" id="fc0">
+          <p class="finder-card-num">Situação 01</p>
+          <h3>Empresa de tecnologia</h3>
+          <p>Vendia ERP. O produto era bom. As vendas não aconteciam.</p>
+        </div>
+        <div class="finder-card" onclick="showFinder(1)" id="fc1">
+          <p class="finder-card-num">Situação 02</p>
+          <h3>Empresa de insumos agrícolas</h3>
+          <p>Mesmo produto que os concorrentes. Dificuldade de abrir novas portas.</p>
+        </div>
+        <div class="finder-card" onclick="showFinder(2)" id="fc2">
+          <p class="finder-card-num">Situação 03</p>
+          <h3>Linguagem fora do alvo</h3>
+          <p>Vendendo sofisticação para quem quer praticidade, ou vice-versa.</p>
+        </div>
+        <div class="finder-card" onclick="showFinder(3)" id="fc3">
+          <p class="finder-card-num">Situação 04</p>
+          <h3>Incômodo invisível no ponto de venda</h3>
+          <p>O cliente continua comprando, mas algo o incomoda sem que ele saiba nomear.</p>
+        </div>
+      </div>
+      <div class="finder-answer visible" id="fa0">
+        <p>A empresa não tinha um problema de produto. Tinha um problema de percepção. <strong>Quando passou a vender organização, agilidade e facilidade em vez de ERP,</strong> o mercado entendeu e as vendas aconteceram. O produto não mudou. A percepção mudou.</p>
+      </div>
+      <div class="finder-answer" id="fa1">
+        <p>O produto era o mesmo que os concorrentes ofereciam. <strong>Quando a empresa passou a mostrar o resultado visível antes da compra</strong>, com imagens das plantas em cada fase de crescimento e o momento certo de aplicação de cada produto, o mercado passou a percebê-la como muito mais técnica e transparente. Abriu portas que antes estavam fechadas.</p>
+      </div>
+      <div class="finder-answer" id="fa2">
+        <p>A linguagem da empresa comunica ao mercado quem ela serve. <strong>Quando há desalinhamento entre o que a empresa comunica e o perfil de quem compra,</strong> a empresa afasta exatamente o cliente que deveria atrair. E atrai quem não reconhece o valor entregue. Isso abre espaço para o concorrente certo entrar.</p>
+      </div>
+      <div class="finder-answer" id="fa3">
+        <p>O cliente não reclama. Não explica. Mas registra tudo. A fachada, o interior, o atendimento de balcão: tudo forma uma percepção. <strong>Quando aparece um concorrente que elimina esse incômodo invisível,</strong> o cliente troca sem avisar, sem dar chance de reação. Esse incômodo é uma brecha aberta que muitas empresas nunca percebem.</p>
+      </div>
     </div>
   </div>
 
-  <div class="section section-alt">
-    <div class="section-label">O que o mercado percebe</div>
-    <h2 class="section-title">Às vezes ele continua comprando,<br>mas com um incômodo que não sabe nomear.</h2>
-    <p style="max-width:600px;color:var(--text-muted);font-weight:300;line-height:1.9;margin-bottom:3rem">E quando aparece um concorrente que elimina esse incômodo, ele troca. Sem avisar. Sem reclamar. Sem dar chance de você reagir.</p>
-    <div class="examples-grid">
-      <div class="example-card">
-        <div class="example-tag">Empresa de tecnologia</div>
-        <p class="example-text">Vendia ERP. Ninguém comprava. Quando passou a vender organização, agilidade e facilidade, o mercado entendeu e começou a comprar.</p>
-        <p class="example-result">O produto não mudou. A percepção mudou.</p>
+  <!-- CASES DE IMPACTO -->
+  <div class="cases">
+    <div class="cases-inner">
+      <div class="cases-header">
+        <h2>Resultados que a percepção constrói.</h2>
+        <a onclick="showPage('oque');return false;" href="#">Ver o que fazemos</a>
       </div>
-      <div class="example-card">
-        <div class="example-tag">Empresa de insumos agrícolas</div>
-        <p class="example-text">Mesmo produto que os concorrentes. Quando passou a mostrar o resultado visível antes da compra, abriu portas onde antes não conseguia entrar.</p>
-        <p class="example-result">O produto não mudou. A percepção mudou.</p>
-      </div>
-      <div class="example-card">
-        <div class="example-tag">Linguagem e público</div>
-        <p class="example-text">Vendendo sofisticação para quem compra praticidade, ou praticidade para quem quer sofisticação. A linguagem afasta exatamente o cliente que deveria atrair.</p>
-        <p class="example-result">A marca está falando com quem não é seu cliente.</p>
-      </div>
-      <div class="example-card">
-        <div class="example-tag">Experiência no ponto de venda</div>
-        <p class="example-text">A fachada, o interior, o atendimento de balcão. O cliente sente algo que não consegue nomear. Esse incômodo invisível é uma brecha aberta para o concorrente.</p>
-        <p class="example-result">Marcas se formam em todo ponto de contato.</p>
+      <div class="cases-grid">
+        <div class="case-card">
+          <p class="case-tag">Brands positivas</p>
+          <h3 class="case-title">Marcas boas constroem reputação, abrem portas e tornam vendas mais fáceis.</h3>
+          <div class="case-impact">
+            <p class="case-impact-label">O que muda na prática</p>
+            <div class="case-metrics">
+              <div>
+                <p class="case-metric-num">Menos</p>
+                <p class="case-metric-desc">esforço da equipe comercial para fechar vendas</p>
+              </div>
+              <div>
+                <p class="case-metric-num">Mais</p>
+                <p class="case-metric-desc">margem sem precisar competir no preço</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <p class="case-tag">Brands negativas</p>
+          <h3 class="case-title">Marcas ruins afastam clientes que você nem sabe que está perdendo.</h3>
+          <div class="case-impact">
+            <p class="case-impact-label">O que muda na prática</p>
+            <div class="case-metrics">
+              <div>
+                <p class="case-metric-num">Parar</p>
+                <p class="case-metric-desc">de investir no que não tem mais volta</p>
+              </div>
+              <div>
+                <p class="case-metric-num">Liberar</p>
+                <p class="case-metric-desc">energia para o que realmente pode crescer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card">
+          <p class="case-tag">Brands artificiais</p>
+          <h3 class="case-title">Marcas criadas de forma planejada para surpreender e gravar percepções que o cliente não esperava.</h3>
+          <div class="case-impact">
+            <p class="case-impact-label">O que muda na prática</p>
+            <div class="case-metrics">
+              <div>
+                <p class="case-metric-num">De</p>
+                <p class="case-metric-desc">cliente satisfeito para defensor da marca</p>
+              </div>
+              <div>
+                <p class="case-metric-num">Zero</p>
+                <p class="case-metric-desc">campanhas necessárias para criar essa percepção</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- STATEMENT -->
   <div class="statement">
-    <p class="statement-text"><strong>Marcas boas</strong> constroem reputação, abrem portas e tornam vendas mais fáceis. <strong>Marcas ruins</strong> afastam clientes que você nem sabe que está perdendo.<br><br>A Wagners Consultoria existe para revelar essas marcas, as boas e as ruins, e mostrar o que fazer com cada uma delas.</p>
-    <div class="divider-line"></div>
-    <a class="hero-cta" onclick="showPage('contato');return false;" href="#">Quer saber quais marcas sua empresa está deixando no mercado?</a>
+    <div class="statement-inner">
+      <p class="statement-text">A Wagners Consultoria existe para revelar essas marcas, <strong>as boas e as ruins,</strong> e mostrar o que fazer com cada uma delas. Porque percepção não se improvisa. <strong>Se constrói com método.</strong></p>
+    </div>
+  </div>
+
+  <!-- CTA DUPLO -->
+  <div class="dual-cta">
+    <div class="dual-cta-inner">
+      <div class="dual-cta-block">
+        <h2>Quer saber quais marcas sua empresa está deixando no mercado?</h2>
+        <a class="btn-white" onclick="showPage('contato');return false;" href="#">Fala com a gente</a>
+      </div>
+      <div class="dual-cta-block">
+        <h2>Entenda como identificamos, separamos e trabalhamos cada Brand.</h2>
+        <a class="btn-white" onclick="showPage('como');return false;" href="#">Como trabalhamos</a>
+      </div>
+    </div>
   </div>
 
   <footer>
-    <div class="footer-logo-img"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
-    <div class="footer-copy">Santa Catarina · Brasil</div>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
+      <div class="footer-copy">Santa Catarina · Brasil</div>
+    </div>
   </footer>
 </div>
 
-<!-- QUEM SOMOS -->
+<!-- ==================== QUEM SOMOS ==================== -->
 <div class="page" id="page-quem">
-  <div class="qs-hero">
-    <div class="section-label">Quem Somos</div>
-    <h1 class="qs-title">Há 20 anos enxergamos o que<br>o mercado percebe<br>e o empresário ainda não viu.</h1>
-    <p class="qs-subtitle">Uma consultoria construída sobre a convicção de que percepção se constrói com método. E de que toda empresa tem marcas que ainda não conhece.</p>
-  </div>
-
-  <div class="qs-body">
-    <div class="qs-col">
-      <p>Me chamo Wagner. Sou consultor especializado em Brands e Branding. Não no sentido de logo e campanha, mas no sentido real e profundo da palavra.</p>
-      <p><strong>Brands</strong> são tudo que o mercado sente e pensa sobre o seu negócio. São marcações que acontecem o tempo todo, em todo lugar, querendo você ou não. Podem ser positivas, construindo valor, reputação e crescimento. Ou negativas, limitando resultados, afastando clientes e abrindo espaço para o concorrente.</p>
-      <p>Uso o termo em inglês porque em português a palavra "marca" ficou pequena demais para o que ela realmente representa.</p>
-    </div>
-    <div class="qs-col">
-      <p>Aprendi ao longo de 20 anos que o problema da maioria das empresas não está no produto. Está em como o mercado percebe o negócio.</p>
-      <p>Trabalho com inteligência humana e artificial para revelar essas marcas, separar as boas das ruins e mostrar o que fazer com cada uma delas. Não vendo fórmula. Não entrego um manual.</p>
-      <p>Entrego <strong>clareza</strong> e um caminho concreto para o seu negócio ser reconhecido pelo que realmente é e pelo que pode se tornar.</p>
-    </div>
-    <div class="qs-name-origin">
-      <div class="qs-name-origin-label">A origem do nome</div>
-      <p class="qs-name-origin-text">Wagners, com S, não é apenas o nome do fundador. Representa a multiplicidade de visões, análises e inteligências que este trabalho exige e que nenhuma pessoa sozinha consegue ter. É como se houvessem vários Wagners olhando para várias coisas ao mesmo tempo, pensando coisas diferentes, analisando diferentes linhas, propondo diferentes soluções. Inteligências humanas e artificiais trabalhando juntas para revelar o que uma visão única nunca revelaria.</p>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-label">Quem Somos</p>
+      <h1 class="page-title">Há 20 anos enxergamos o que<br>o mercado percebe e o empresário ainda não viu.</h1>
+      <p class="page-subtitle">Uma consultoria construída sobre a convicção de que percepção se constrói com método. E de que toda empresa tem marcas que ainda não conhece.</p>
     </div>
   </div>
-
+  <div class="page-body">
+    <div class="about-grid">
+      <div class="about-col">
+        <p>Me chamo Wagner. Sou consultor especializado em Brands e Branding. Não no sentido de logo e campanha, mas no sentido real e profundo da palavra.</p>
+        <p><strong>Brands</strong> são tudo que o mercado sente e pensa sobre o seu negócio. São marcações que acontecem o tempo todo, em todo lugar, querendo você ou não. Podem ser positivas, construindo valor, reputação e crescimento. Ou negativas, limitando resultados, afastando clientes e abrindo espaço para o concorrente.</p>
+        <p>Uso o termo em inglês porque em português a palavra "marca" ficou pequena demais para o que ela realmente representa.</p>
+      </div>
+      <div class="about-col">
+        <p>Aprendi ao longo de 20 anos que o problema da maioria das empresas não está no produto. Está em como o mercado percebe o negócio.</p>
+        <p>Trabalho com inteligência humana e artificial para revelar essas marcas, separar as boas das ruins e mostrar o que fazer com cada uma delas. Não vendo fórmula. Não entrego um manual.</p>
+        <p>Entrego <strong>clareza</strong> e um caminho concreto para o seu negócio ser reconhecido pelo que realmente é e pelo que pode se tornar.</p>
+      </div>
+    </div>
+    <div class="about-box">
+      <p class="about-box-label">A origem do nome</p>
+      <p class="about-box-text">Wagners, com S, não é apenas o nome do fundador. Representa a multiplicidade de visões, análises e inteligências que este trabalho exige e que nenhuma pessoa sozinha consegue ter. É como se houvessem vários Wagners olhando para várias coisas ao mesmo tempo, pensando coisas diferentes, analisando diferentes linhas, propondo diferentes soluções. Inteligências humanas e artificiais trabalhando juntas para revelar o que uma visão única nunca revelaria.</p>
+    </div>
+  </div>
   <div class="proverb">
-    <p class="proverb-text">"A boa reputação vale mais que grandes riquezas."</p>
-    <p class="proverb-ref">Provérbios 22:1. Aproximadamente 3.000 anos de resultados comprovados.</p>
+    <div class="proverb-inner">
+      <p class="proverb-text">"A boa reputação vale mais que grandes riquezas."</p>
+      <p class="proverb-ref">Provérbios 22:1. Aproximadamente 3.000 anos de resultados comprovados.</p>
+    </div>
   </div>
-
   <footer>
-    <div class="footer-logo-img"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
-    <div class="footer-copy">Santa Catarina · Brasil</div>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
+      <div class="footer-copy">Santa Catarina · Brasil</div>
+    </div>
   </footer>
 </div>
 
-<!-- O QUE FAZEMOS -->
+<!-- ==================== O QUE FAZEMOS ==================== -->
 <div class="page" id="page-oque">
-  <div class="qs-hero">
-    <div class="section-label">O Que Fazemos</div>
-    <h1 class="qs-title">Revelamos o que está construindo<br>e o que está limitando<br>o seu negócio.</h1>
-    <p class="qs-subtitle">Nosso trabalho começa onde a maioria das consultorias não chega: no diagnóstico real de como o mercado percebe a sua empresa.</p>
-  </div>
-
-  <div class="services">
-    <div class="service-item">
-      <div class="service-num">01</div>
-      <div>
-        <h3 class="service-name">Diagnóstico de Brands</h3>
-        <p class="service-text">Mapeamos as marcas que sua empresa está deixando no mercado: as visíveis e as invisíveis, as intencionais e as que acontecem sem que ninguém perceba. O mercado registra tudo: o atendimento, a entrega, a experiência de compra, o suporte, o que falam sobre a empresa quando ela não está na sala. Identificamos quais dessas marcas estão construindo valor e quais estão limitando crescimento, muitas vezes sem que o empresário tenha consciência disso.</p>
-        <p class="service-result">Você passa a enxergar seu negócio como o mercado enxerga.</p>
-      </div>
-    </div>
-    <div class="service-item">
-      <div class="service-num">02</div>
-      <div>
-        <h3 class="service-name">Fortalecimento de Brands positivas</h3>
-        <p class="service-text">Toda empresa tem Brands positivas que o mercado já percebe, mas que a própria empresa ainda não aprendeu a usar a seu favor. Depois de revelar o que está funcionando, trabalhamos para que essas marcas sejam comunicadas, amplificadas e aproveitadas de forma estratégica. O que a empresa já entrega bem precisa ser visto, sentido e lembrado pelo mercado de forma clara e consistente.</p>
-        <p class="service-result">O mercado passa a enxergar seu negócio com o valor que ele realmente entrega.</p>
-      </div>
-    </div>
-    <div class="service-item">
-      <div class="service-num">03</div>
-      <div>
-        <h3 class="service-name">Transformação ou eliminação de Brands negativas</h3>
-        <p class="service-text">Identificamos o que está gerando percepções ruins e avaliamos o que fazer com cada uma. Algumas podem ser transformadas com tempo e método. Outras precisam ser eliminadas. Há casos em que um produto traumatizou o mercado e nenhuma remodelagem resolve: enquanto carregar o mesmo nome e a mesma origem, o mercado vai continuar rejeitando. Saber distinguir quando transformar e quando eliminar evita continuar investindo no que não tem mais volta.</p>
-        <p class="service-result">Seu negócio para de perder tempo e dinheiro em batalhas que o mercado já decidiu.</p>
-      </div>
-    </div>
-    <div class="service-item">
-      <div class="service-num">04</div>
-      <div>
-        <h3 class="service-name">Brands artificiais</h3>
-        <p class="service-text">Há marcas que não surgem naturalmente da operação. Elas são criadas de forma planejada com um objetivo claro: sobrepor uma Brand negativa ou surpreender o cliente que já estava satisfeito, gravando uma percepção que ele não esperava. Uma indústria de bicicletas que avisa o cliente dois anos depois que sua bike pode precisar de manutenção e indica oficinas na região cria exatamente isso. O cliente não esperava esse contato. Essa surpresa grava uma percepção que nenhuma campanha de marketing consegue comprar.</p>
-        <p class="service-result">O cliente que já escolhia a marca pela reputação passa a defendê-la pela experiência.</p>
-      </div>
-    </div>
-    <div class="service-item">
-      <div class="service-num">05</div>
-      <div>
-        <h3 class="service-name">Posicionamento e comunicação como Brands</h3>
-        <p class="service-text">A forma como uma empresa se posiciona e comunica não é apenas uma ferramenta. É ela mesma uma Brand. O mercado percebe se há convicção por trás do que é dito, se o que a empresa comunica é coerente com o que pratica, e se a direção é firme. Um posicionamento claro e consistente grava a percepção de que a empresa sabe quem é e para onde vai. Uma comunicação coerente com a prática reforça as Brands positivas e dá credibilidade a tudo o mais que a empresa diz sobre si mesma.</p>
-        <p class="service-result">Sua empresa passa a ser acreditada porque o que comunica é coerente com o que o mercado já sente sobre ela.</p>
-      </div>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-label">O Que Fazemos</p>
+      <h1 class="page-title">Revelamos o que está construindo<br>e o que está limitando o seu negócio.</h1>
+      <p class="page-subtitle">Nosso trabalho começa onde a maioria das consultorias não chega: no diagnóstico real de como o mercado percebe a sua empresa.</p>
     </div>
   </div>
-
-  <div class="no-formula">
-    <h3 class="no-formula-title">Não existe fórmula. Existe leitura de cenário.</h3>
-    <p class="no-formula-text">Cada negócio tem um DNA único. O que funciona para um pode ser exatamente o que não funciona para outro. Às vezes o caminho é mostrar o que o concorrente tem medo de mostrar. Outras vezes é assumir com orgulho o que o concorrente tenta esconder. O diferencial não está numa receita: está em saber ler o que o mercado percebe e construir a narrativa certa a partir daí.</p>
+  <div class="page-body">
+    <div class="services-header">
+      <p class="services-label">Nossos serviços</p>
+      <h2>Cada Brand tem um papel. Identificamos, separamos e trabalhamos cada uma delas.</h2>
+    </div>
+    <div class="services-list">
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div class="service-name">Diagnóstico de Brands</div>
+        <div>
+          <p class="service-desc">Mapeamos as marcas que sua empresa está deixando no mercado: as visíveis e as invisíveis, as intencionais e as que acontecem sem que ninguém perceba. O mercado registra tudo: o atendimento, a entrega, a experiência de compra, o suporte, o que falam sobre a empresa quando ela não está na sala. Identificamos quais dessas marcas estão construindo valor e quais estão limitando crescimento, muitas vezes sem que o empresário tenha consciência disso.</p>
+          <p class="service-result">Você passa a enxergar seu negócio como o mercado enxerga.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div class="service-name">Fortalecimento de Brands positivas</div>
+        <div>
+          <p class="service-desc">Toda empresa tem Brands positivas que o mercado já percebe, mas que a própria empresa ainda não aprendeu a usar a seu favor. Depois de revelar o que está funcionando, trabalhamos para que essas marcas sejam comunicadas, amplificadas e aproveitadas de forma estratégica. O que a empresa já entrega bem precisa ser visto, sentido e lembrado pelo mercado de forma clara e consistente.</p>
+          <p class="service-result">O mercado passa a enxergar seu negócio com o valor que ele realmente entrega.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div class="service-name">Transformação ou eliminação de Brands negativas</div>
+        <div>
+          <p class="service-desc">Identificamos o que está gerando percepções ruins e avaliamos o que fazer com cada uma. Algumas podem ser transformadas com tempo e método. Outras precisam ser eliminadas. Há casos em que um produto traumatizou o mercado e nenhuma remodelagem resolve: enquanto carregar o mesmo nome e a mesma origem, o mercado vai continuar rejeitando. Saber distinguir quando transformar e quando eliminar evita continuar investindo no que não tem mais volta.</p>
+          <p class="service-result">Seu negócio para de perder tempo e dinheiro em batalhas que o mercado já decidiu.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div class="service-name">Brands artificiais</div>
+        <div>
+          <p class="service-desc">Há marcas que não surgem naturalmente da operação. Elas são criadas de forma planejada com um objetivo claro: sobrepor uma Brand negativa ou surpreender o cliente que já estava satisfeito, gravando uma percepção que ele não esperava. Uma indústria de bicicletas que avisa o cliente dois anos depois que sua bike pode precisar de manutenção e indica oficinas na região cria exatamente isso. O cliente não esperava esse contato. Essa surpresa grava uma percepção que nenhuma campanha de marketing consegue comprar.</p>
+          <p class="service-result">O cliente que já escolhia a marca pela reputação passa a defendê-la pela experiência.</p>
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">05</div>
+        <div class="service-name">Posicionamento e comunicação como Brands</div>
+        <div>
+          <p class="service-desc">A forma como uma empresa se posiciona e comunica não é apenas uma ferramenta. É ela mesma uma Brand. O mercado percebe se há convicção por trás do que é dito, se o que a empresa comunica é coerente com o que pratica, e se a direção é firme. Um posicionamento claro e consistente grava a percepção de que a empresa sabe quem é e para onde vai. Uma comunicação coerente com a prática reforça as Brands positivas e dá credibilidade a tudo o mais que a empresa diz sobre si mesma.</p>
+          <p class="service-result">Sua empresa passa a ser acreditada porque o que comunica é coerente com o que o mercado já sente sobre ela.</p>
+        </div>
+      </div>
+    </div>
   </div>
-
   <footer>
-    <div class="footer-logo-img"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
-    <div class="footer-copy">Santa Catarina · Brasil</div>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
+      <div class="footer-copy">Santa Catarina · Brasil</div>
+    </div>
   </footer>
 </div>
 
-<!-- COMO TRABALHAMOS -->
+<!-- ==================== COMO TRABALHAMOS ==================== -->
 <div class="page" id="page-como">
-  <div class="qs-hero">
-    <div class="section-label">Como Trabalhamos</div>
-    <h1 class="qs-title">Um olhar de fora, com método,<br>para revelar o que está dentro.</h1>
-    <p class="qs-subtitle">Quem está dentro da empresa dificilmente consegue enxergar as marcas que ela deixa no mercado. Não por falta de competência, mas porque a visão de dentro tem pontos cegos que só aparecem quando alguém de fora olha com profundidade e sem viés.</p>
-  </div>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div>
-        <h3 class="step-name">Escuta e imersão</h3>
-        <p class="step-text">Antes de qualquer análise, precisamos entender o negócio pelo olhar de quem está dentro. Sua história, seu mercado, seus produtos, suas pessoas, seus resultados. Cada detalhe importa, inclusive os que parecem irrelevantes.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div>
-        <h3 class="step-name">Mapeamento de Brands</h3>
-        <p class="step-text">Com base nessa imersão, identificamos as marcas que sua empresa está deixando: intencionais ou não, visíveis ou invisíveis, internas ou externas. Tudo que o mercado sente sobre o negócio entra nesse mapa.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div>
-        <h3 class="step-name">Diagnóstico</h3>
-        <p class="step-text">Separamos as Brands positivas das negativas. Entendemos os motivos de cada uma. Avaliamos o impacto de cada grupo no mercado e nos resultados do negócio. É aqui que o empresário começa a enxergar o que o mercado já viu.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div>
-        <h3 class="step-name">Direção estratégica</h3>
-        <p class="step-text">Apresentamos o que encontramos com clareza e mostramos o caminho: o que fortalecer, o que transformar, o que eliminar e por onde começar. Com indicações do que pode ser feito imediatamente e o que vai exigir planejamento de médio e longo prazo.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">05</div>
-      <div>
-        <h3 class="step-name">Comunicação e posicionamento</h3>
-        <p class="step-text">Pelo lado externo, vamos organizando a comunicação para que o mercado já comece a perceber o negócio com mais valor, enquanto o interno evolui no seu próprio tempo.</p>
-      </div>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-label">Como Trabalhamos</p>
+      <h1 class="page-title">Um olhar de fora, com método,<br>para revelar o que está dentro.</h1>
+      <p class="page-subtitle">Quem está dentro da empresa dificilmente consegue enxergar as marcas que ela deixa no mercado. Não por falta de competência, mas porque a visão de dentro tem pontos cegos que só aparecem quando alguém de fora olha com profundidade e sem viés.</p>
     </div>
   </div>
-
-  <div class="ct-close">
-    Não entregamos um relatório para ficar na gaveta. Entregamos uma visão que o empresário ainda não tinha e um caminho concreto para agir.
+  <div class="page-body">
+    <div class="steps-grid">
+      <div class="step-row">
+        <div class="step-num">01</div>
+        <div>
+          <h3 class="step-name">Escuta e imersão</h3>
+          <p class="step-text">Antes de qualquer análise, precisamos entender o negócio pelo olhar de quem está dentro. Sua história, seu mercado, seus produtos, suas pessoas, seus resultados. Cada detalhe importa, inclusive os que parecem irrelevantes.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">02</div>
+        <div>
+          <h3 class="step-name">Mapeamento de Brands</h3>
+          <p class="step-text">Com base nessa imersão, identificamos as marcas que sua empresa está deixando: intencionais ou não, visíveis ou invisíveis, internas ou externas. Tudo que o mercado sente sobre o negócio entra nesse mapa.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">03</div>
+        <div>
+          <h3 class="step-name">Diagnóstico</h3>
+          <p class="step-text">Separamos as Brands positivas das negativas. Entendemos os motivos de cada uma. Avaliamos o impacto de cada grupo no mercado e nos resultados do negócio. É aqui que o empresário começa a enxergar o que o mercado já viu.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">04</div>
+        <div>
+          <h3 class="step-name">Direção estratégica</h3>
+          <p class="step-text">Apresentamos o que encontramos com clareza e mostramos o caminho: o que fortalecer, o que transformar, o que eliminar e por onde começar. Com indicações do que pode ser feito imediatamente e o que vai exigir planejamento de médio e longo prazo.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">05</div>
+        <div>
+          <h3 class="step-name">Comunicação e posicionamento</h3>
+          <p class="step-text">Pelo lado externo, vamos organizando a comunicação para que o mercado já comece a perceber o negócio com mais valor, enquanto o interno evolui no seu próprio tempo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="step-close">
+      <div class="step-close-inner">Não entregamos um relatório para ficar na gaveta. Entregamos uma visão que o empresário ainda não tinha e um caminho concreto para agir.</div>
+    </div>
   </div>
-
   <footer>
-    <div class="footer-logo-img"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
-    <div class="footer-copy">Santa Catarina · Brasil</div>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
+      <div class="footer-copy">Santa Catarina · Brasil</div>
+    </div>
   </footer>
 </div>
 
-<!-- CONTATO -->
+<!-- ==================== CONTATO ==================== -->
 <div class="page" id="page-contato">
-  <div class="contact-hero">
-    <div class="section-label">Contato</div>
-    <h1 class="contact-title">Quais são as marcas<br>da <em>sua empresa?</em></h1>
-    <p class="contact-text">Se você chegou até aqui, provavelmente já está se fazendo essa pergunta. Essa dúvida já é o primeiro passo. Me chama. A gente conversa, entende o seu momento e vê se faz sentido trabalharmos juntos.</p>
-    <a class="contact-btn" href="https://wa.me/5547992100038" target="_blank">Fala com a gente no WhatsApp</a>
-    <div class="contact-info">
-      <a href="https://wa.me/5547992100038" target="_blank">(47) 99210-0038</a><br>
-      Santa Catarina · Brasil
+  <div class="contact-section">
+    <div class="contact-inner">
+      <p class="page-label">Contato</p>
+      <h1 class="contact-title">Quais são as marcas<br>da <em>sua empresa?</em></h1>
+      <p class="contact-text">Se você chegou até aqui, provavelmente já está se fazendo essa pergunta. Essa dúvida já é o primeiro passo. Me chama. A gente conversa, entende o seu momento e vê se faz sentido trabalharmos juntos.</p>
+      <a class="btn-primary" href="https://wa.me/5547992100038" target="_blank">Fala com a gente no WhatsApp</a>
+      <div class="contact-info">
+        <a href="https://wa.me/5547992100038" target="_blank">(47) 99210-0038</a><br>
+        Santa Catarina · Brasil
+      </div>
     </div>
   </div>
-
   <footer>
-    <div class="footer-logo-img"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
-    <div class="footer-copy">© 2025 Wagners Consultoria</div>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="https://raw.githubusercontent.com/owagnersborges/waghsborgs/refs/heads/main/wagners-fundo-branco.png" alt="Wagners Consultoria"></div>
+      <div class="footer-copy">© 2025 Wagners Consultoria</div>
+    </div>
   </footer>
 </div>
 
@@ -399,6 +563,14 @@ function showPage(id){
 }
 function toggleMenu(){
   document.getElementById('navlinks').classList.toggle('open');
+}
+function showFinder(i){
+  for(var j=0;j<4;j++){
+    document.getElementById('fc'+j).classList.remove('active');
+    document.getElementById('fa'+j).classList.remove('visible');
+  }
+  document.getElementById('fc'+i).classList.add('active');
+  document.getElementById('fa'+i).classList.add('visible');
 }
 </script>
 </body>
